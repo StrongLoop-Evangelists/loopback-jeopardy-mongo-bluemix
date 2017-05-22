@@ -65,7 +65,8 @@ The schema for the Jeopardy! questions is
 	"answer" : "Copernicus",
 	"round" : "Jeopardy!",
 	"show_number" : "4680"
-}```
+}
+```
 
 Name your model and connect it to the datasource you just created: 
 ![LoopBack model](https://github.com/emckean/jeopardy-mongo-api/blob/master/readme:images/LoopBack-model.png)
