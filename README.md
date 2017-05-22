@@ -84,3 +84,11 @@ You don't need to create a property specifically for '_id'; LoopBack will do it 
 `node .`
 
 ![LoopBack start](https://github.com/emckean/jeopardy-mongo-api/blob/master/readme:images/LoopBack-start.png)
+
+##### Check out the Explorer!
+
+![LoopBack explorer](https://github.com/emckean/jeopardy-mongo-api/blob/master/readme:images/LoopBack-explorer.png)
+
+![LoopBack explorer 2](https://github.com/emckean/jeopardy-mongo-api/blob/master/readme:images/LoopBack-explorer2.png)
+
+![LoopBack explorer 3](https://github.com/emckean/jeopardy-mongo-api/blob/master/readme:images/LoopBack-explorer3.png)
