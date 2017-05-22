@@ -25,5 +25,6 @@ The Jeopardy! dataset (216,930 Jeopardy! questions in JSON format) is available 
 
 1. Start Mongo locally and load your data into your local MongoDB. (Your process will vary, but you could use something like `mongoimport  --db test --collection jeopardy --file JEOPARDY_QUESTIONS.txt`
 2. Time for LoopBack! 
+![Loopback](https://github.com/emckean/jeopardy-mongo-api/blob/master/readme:images/Loopback1.png)
 
 `lb app jeopardy-mongo-api`
