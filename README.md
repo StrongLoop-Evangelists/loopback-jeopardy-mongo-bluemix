@@ -36,3 +36,6 @@ To create your LoopBack application, use
 Wait for `npm install` to finish, then `cd jeopardy-mongo-api`
 
 3. Add your datasource! 
+
+`lb datasource`
+![Loopback datasource 1](https://github.com/emckean/jeopardy-mongo-api/blob/master/readme:images/LoopBack-datasource1.png)
