@@ -82,3 +82,5 @@ You don't need to create a property specifically for '_id'; LoopBack will do it 
 ##### Start your API!
 
 `node .`
+
+![LoopBack start](https://github.com/emckean/jeopardy-mongo-api/blob/master/readme:images/LoopBack-start.png)
