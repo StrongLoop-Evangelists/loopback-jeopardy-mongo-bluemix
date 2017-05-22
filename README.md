@@ -23,8 +23,10 @@ The Jeopardy! dataset (216,930 Jeopardy! questions in JSON format) is available 
 
 ### Create Your API
 
-1. Start Mongo locally and load your data into your local MongoDB. (Your process will vary, but you could use something like `mongoimport  --db test --collection jeopardy --file JEOPARDY_QUESTIONS.txt`
-2. Time for LoopBack! 
+##### Start Mongo
+Start Mongo locally and load your data into your local MongoDB. (Your process will vary, but you could use something like `mongoimport  --db test --collection jeopardy --file JEOPARDY_QUESTIONS.txt`
+
+##### Time for LoopBack! 
 
 To create your LoopBack application, use 
 `lb app jeopardy-mongo-api`
@@ -35,7 +37,7 @@ To create your LoopBack application, use
 
 Wait for `npm install` to finish, then `cd jeopardy-mongo-api`
 
-3. Add your datasource! 
+##### Add your datasource! 
 
 `lb datasource`
 
@@ -44,4 +46,34 @@ Name your datasource and choose the LoopBack MongoDB connector:
 ![Loopback datasource 2](https://github.com/emckean/jeopardy-mongo-api/blob/master/readme:images/LoopBack-datasource2.png)
 
 If you use a URL for your connector you don't need to specify the host/port/user/password: 
+
 ![Loopback datasource 2](https://github.com/emckean/jeopardy-mongo-api/blob/master/readme:images/LoopBack-datasource3.png)
+
+Wait for `npm install` of the connector to finish. 
+
+##### Create your model
+
+`lb model`
+
+The schema for the Jeopardy! questions is 
+```json{
+	"_id" : ObjectId("5922063e8f51a16a884263bf"),
+	"category" : "HISTORY",
+	"air_date" : "2004-12-31",
+	"question" : "'For the last 8 years of his life, Galileo was under house arrest for espousing this man's theory'",
+	"value" : "$200",
+	"answer" : "Copernicus",
+	"round" : "Jeopardy!",
+	"show_number" : "4680"
+}```
+
+Name your model and connect it to the datasource you just created: 
+![LoopBack model](https://github.com/emckean/jeopardy-mongo-api/blob/master/readme:images/LoopBack-model.png)
+
+You probably won't be saving new questions to the database but you can just go ahead and select PersistedModel just in case: 
+
+![LoopBack model](https://github.com/emckean/jeopardy-mongo-api/blob/master/readme:images/LoopBack-model2.png)
+
+You don't need to create a property specifically for '_id'; LoopBack will do it for you:
+
+![LoopBack model](https://github.com/emckean/jeopardy-mongo-api/blob/master/readme:images/LoopBack-model3.png)
