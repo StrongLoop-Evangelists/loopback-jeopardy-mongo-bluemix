@@ -169,3 +169,18 @@ Restart your application, and you should now see these endpoints in your Explore
 
 ![LoopBack remote method](https://github.com/emckean/jeopardy-mongo-api/blob/master/readme:images/LoopBack-remote.png)
 ![LoopBack remote method](https://github.com/emckean/jeopardy-mongo-api/blob/master/readme:images/LoopBack-remote2.png)
+
+
+##### Deploy to Bluemix
+
+1. Sign in to [Bluemix](https://console.ng.bluemix.net)
+2. In the Bluemix Catalog, choose the [LoopBack Starter App](https://console.ng.bluemix.net/catalog/starters/loopback-starter)
+3. Download the starter code that they give you: 
+![LoopBack starter](https://github.com/emckean/jeopardy-mongo-api/blob/master/readme:images/Bluemix-starter.png)
+4. Open the `manifest.yml` file in your downloaded starter code and copy that file to your LoopBack application.
+![manifest.yml](https://github.com/emckean/jeopardy-mongo-api/blob/master/readme:images/manifest-yml.png)
+5. Provision and connect a [Compose for MongoDB on Bluemix](https://console.ng.bluemix.net/catalog/services/compose-for-mongodb)
+![Compose for MongoDB](https://github.com/emckean/jeopardy-mongo-api/blob/master/readme:images/compose-mongo.png)
+6. Get your Compose MongoDB credentials:
+![credentials1](https://github.com/emckean/jeopardy-mongo-api/blob/master/readme:images/compose-credentials.png)
+![credentials1](https://github.com/emckean/jeopardy-mongo-api/blob/master/readme:images/compose-credentials2.png)
