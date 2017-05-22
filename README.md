@@ -31,5 +31,5 @@ To create your LoopBack application, use
 
 ![Loopback init](https://github.com/emckean/jeopardy-mongo-api/blob/master/readme:images/Loopback1.png)
 
-![Loopback app creation(https://github.com/emckean/jeopardy-mongo-api/blob/master/readme:images/Loopback2.png)
+![Loopback app creation](https://github.com/emckean/jeopardy-mongo-api/blob/master/readme:images/Loopback2.png)
 
