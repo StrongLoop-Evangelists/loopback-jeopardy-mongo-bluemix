@@ -78,3 +78,7 @@ You probably won't be saving new questions to the database but you can just go a
 You don't need to create a property specifically for '_id'; LoopBack will do it for you:
 
 ![LoopBack model](https://github.com/emckean/jeopardy-mongo-api/blob/master/readme:images/LoopBack-model3.png)
+
+##### Start your API!
+
+`node .`
