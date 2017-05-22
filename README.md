@@ -51,7 +51,7 @@ If you use a URL for your connector you don't need to specify the host/port/user
 
 Wait for `npm install` of the connector to finish. 
 
-##### Create your model
+##### Create your model!
 
 `lb model`
 
@@ -89,6 +89,81 @@ You don't need to create a property specifically for '_id'; LoopBack will do it 
 
 ![LoopBack explorer](https://github.com/emckean/jeopardy-mongo-api/blob/master/readme:images/LoopBack-explorer.png)
 
+... 
+
 ![LoopBack explorer 2](https://github.com/emckean/jeopardy-mongo-api/blob/master/readme:images/LoopBack-explorer2.png)
 
+...
+
 ![LoopBack explorer 3](https://github.com/emckean/jeopardy-mongo-api/blob/master/readme:images/LoopBack-explorer3.png)
+
+##### Create custom endpoints
+
+A. Get a random question: 
+
+In the `common/models/jeopardy-question.js` file, add the endpoint functionality:
+
+````	
+Jeopardyquestion.random = function(cb){
+	Jeopardyquestion.getDataSource().connector.connect(function(err, db) {
+		  var collection = db.collection('jeopardyQuestion');
+		  collection.aggregate([
+		    { $sample: { size: 1 } }
+		  ], function(err, data) {
+		    if (err) return cb(err);
+		    return cb(null, data);
+		  });
+		});
+	}
+````
+and the endpoint description:
+
+````
+	Jeopardyquestion.remoteMethod(
+		'random', {
+			http: {
+				path: '/random',
+				verb: 'get'
+			},
+			description: 'Gets one random question',
+			returns: {
+				arg: 'questions',
+				type: 'json'
+			}
+		});
+````		
+
+B. Get the entire list of Jeopardy! categories: 
+
+In the `common/models/jeopardy-question.js` file, add the endpoint functionality:
+
+````	
+Jeopardyquestion.categories = function(cb){
+		Jeopardyquestion.getDataSource().connector.connect(function(err, db) {
+		  var collection = db.collection('jeopardyQuestion');
+		  collection.distinct('category', function(err, data) {
+		    if (err) return cb(err);
+		    return cb(null, data);
+		  });
+		});
+	}
+````
+and the endpoint description:
+
+````
+	Jeopardyquestion.remoteMethod(
+		'categories', {
+			http: {
+				path: '/categories',
+				verb: 'get'
+			},
+			description: 'Gets list of categories',
+			returns: {
+				arg: 'categories',
+				type: 'json'
+			}
+		});
+````		
+
+Restart your application, and you should now see these endpoints in your Explorer: 
+
