@@ -167,3 +167,5 @@ and the endpoint description:
 
 Restart your application, and you should now see these endpoints in your Explorer: 
 
+![LoopBack remote method](https://github.com/emckean/jeopardy-mongo-api/blob/master/readme:images/LoopBack-remote.png)
+![LoopBack remote method](https://github.com/emckean/jeopardy-mongo-api/blob/master/readme:images/LoopBack-remote2.png)
