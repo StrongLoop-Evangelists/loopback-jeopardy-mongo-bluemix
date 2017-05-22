@@ -38,8 +38,10 @@ Wait for `npm install` to finish, then `cd jeopardy-mongo-api`
 3. Add your datasource! 
 
 `lb datasource`
-![Loopback datasource 1](https://github.com/emckean/jeopardy-mongo-api/blob/master/readme:images/LoopBack-datasource.png)
 
-Choose the LoopBack MongoDB connector: 
+Name your datasource and choose the LoopBack MongoDB connector: 
 
 ![Loopback datasource 2](https://github.com/emckean/jeopardy-mongo-api/blob/master/readme:images/LoopBack-datasource2.png)
+
+If you use a URL for your connector you don't need to specify the host/port/user/password: 
+![Loopback datasource 2](https://github.com/emckean/jeopardy-mongo-api/blob/master/readme:images/LoopBack-datasource3.png)
