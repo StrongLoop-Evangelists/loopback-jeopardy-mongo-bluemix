@@ -1,0 +1,38 @@
+{
+  "name": "jeopardyQuestion",
+  "base": "PersistedModel",
+  "idInjection": true,
+  "options": {
+    "validateUpsert": true
+  },
+  "properties": {
+    "category": {
+      "type": "string"
+    },
+    "air_date": {
+      "type": "date",
+      "required": true
+    },
+    "question": {
+      "type": "string",
+      "required": true
+    },
+    "value": {
+      "type": "string"
+    },
+    "answer": {
+      "type": "string",
+      "required": true
+    },
+    "round": {
+      "type": "string"
+    },
+    "show_number": {
+      "type": "string"
+    }
+  },
+  "validations": [],
+  "relations": {},
+  "acls": [],
+  "methods": {}
+}
