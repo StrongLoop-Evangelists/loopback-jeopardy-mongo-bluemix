@@ -188,7 +188,7 @@ Restart your application, and you should now see these endpoints in your Explore
 7. With those credentials you can set two environment variables for your application: `MONGODB_CONNECTION_URL` and `ca_certificate_base64`
 `cf set-env $YOUR_APP_NAME MONGODB_CONNECTION_URL $YOUR_MONGO_URI`
 `cf set-env $YOUR_APP_NAME ca_certificate_base64 $YOUR_CA_CERTIFICATE`
-(Replace the $YOUR\_APP\_NAME and $YOUR\_MONGO\_URI and $YOUR\_CA\_CERTIFICATE` with your Bluemix app name, your "ca\_certificate\_base64" the "uri" values from your credentials. Also, remove the '/admin' part of the path from your MongoDB URI.)
+(Replace the $YOUR\_APP\_NAME and $YOUR\_MONGO\_URI and $YOUR\_CA\_CERTIFICATE` with your Bluemix app name, your "ca\_certificate\_base64" the "uri" values from your credentials.
 8. Add a `server/datasources.production.json` file, with this content: 
 ```json
 {
