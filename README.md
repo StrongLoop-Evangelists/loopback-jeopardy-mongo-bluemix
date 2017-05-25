@@ -213,3 +213,7 @@ Restart your application, and you should now see these endpoints in your Explore
   },``` and `    "cfenv": "1.0.x",
 ` to your dependencies in your `package.json`. 
 10. Push your app: ``` cf push $YOUR_APP_NAME```
+11. You should now see your app at $YOUR\_APP\NAME.mybluemix.net/explorer! 
+
+NOTE: at this point you won't have any data in the Compose for MongoDB instance that is attached to your Bluemix LoopBack app. You can load data into your Compose for MongoDB in a couple of different ways. One quick way is to do a ```mongodump``` from your local MongoDB, and then ```mongorestore``` it to your Compose for MongoDB instance, like so: 
+```mongorestore --ssl --sslAllowInvalidCertificates --host $YOUR_COMPOSE_HOST --db admin --collection jeopardyQuestion -u $YOUR_COMPOSE_USERNAME -p $YOUR_COMPOSE_PASSWORD jeopardyQuestion.bson ```
