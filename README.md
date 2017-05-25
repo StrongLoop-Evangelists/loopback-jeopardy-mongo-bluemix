@@ -1,10 +1,11 @@
 # Jeopardy API with LoopBack and MongoDB
 
-### An example repo to demonstrate how to set up an easy API with LoopBack, MongoDB, and IBM's Bluemix.
+### Set up an easy API with LoopBack, MongoDB, and IBM's Bluemix.
+
+You will need:
 
 ##### Local Development
 
-You will need:
 1. Node (version 6.6 or higher)
 2. NPM (version 3.10 or higher)
 3. LoopBack cli 
@@ -55,7 +56,7 @@ Wait for `npm install` of the connector to finish.
 
 `lb model`
 
-The schema for the Jeopardy! questions is 
+The schema for the _Jeopardy!_ questions is 
 ```json{
 	"_id" : ObjectId("5922063e8f51a16a884263bf"),
 	"category" : "HISTORY",
@@ -68,10 +69,10 @@ The schema for the Jeopardy! questions is
 }
 ```
 
-Name your model and connect it to the datasource you just created: 
+Name your model and connect it to the datasource you just created. You probably won't be saving new questions to the database but you can just go ahead and select PersistedModel just in case: 
 ![LoopBack model](https://github.com/emckean/jeopardy-mongo-api/blob/master/readme:images/LoopBack-model.png)
 
-You probably won't be saving new questions to the database but you can just go ahead and select PersistedModel just in case: 
+Expose your model through the API and make it 'common' (available to both the server and client). We're only creating a server in this example but there's no harm in choosing 'common'.
 
 ![LoopBack model](https://github.com/emckean/jeopardy-mongo-api/blob/master/readme:images/LoopBack-model2.png)
 
@@ -184,3 +185,31 @@ Restart your application, and you should now see these endpoints in your Explore
 6. Get your Compose MongoDB credentials:
 ![credentials1](https://github.com/emckean/jeopardy-mongo-api/blob/master/readme:images/compose-credentials.png)
 ![credentials1](https://github.com/emckean/jeopardy-mongo-api/blob/master/readme:images/compose-credentials2.png)
+7. With those credentials you can set two environment variables for your application: `MONGODB_CONNECTION_URL` and `ca_certificate_base64`
+`cf set-env $YOUR_APP_NAME MONGODB_CONNECTION_URL $YOUR_MONGO_URI`
+`cf set-env $YOUR_APP_NAME ca_certificate_base64 $YOUR_CA_CERTIFICATE`
+(Replace the $YOUR\_APP\_NAME and $YOUR\_MONGO\_URI and $YOUR\_CA\_CERTIFICATE` with your Bluemix app name, your "ca\_certificate\_base64" the "uri" values from your credentials. Also, remove the '/admin' part of the path from your MongoDB URI.)
+8. Add a `server/datasources.production.json` file, with this content: 
+```json
+{
+  "mongo":{
+    "name": "mongo",
+    "url": "${MONGODB_CONNECTION_URL}",
+    "connector":"mongodb",
+    "ssl":true,
+    "server": {
+        "auto_reconnect": true,
+        "reconnectTries": 100,
+        "reconnectInterval": 1000,
+        "sslValidate":false,
+        "checkServerIdentity":false,
+        "sslCA":"${ca_certificate_base64}"
+    } 
+  }
+}
+```
+9. Add a node engines property ```json    "engines": {
+    "node": ">=6.9.1"
+  },``` and `    "cfenv": "1.0.x",
+` to your dependencies in your `package.json`. 
+10. Push your app: ``` cf push $YOUR_APP_NAME```

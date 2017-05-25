@@ -3,32 +3,10 @@
 var loopback = require('loopback');
 var boot = require('loopback-boot');
 
-// cfenv provides access to your Cloud Foundry environment
- // for more info, see: https://www.npmjs.com/package/cfenv
-var cfenv = require('cfenv');
-var appEnv = cfenv.getAppEnv();
-console.log(appEnv.bind)
-
- 
- // get the app environment from Cloud Foundry
-
-
- 
 var app = module.exports = loopback();
-
-  
   
 app.start = function() {
   // start the web server
-   // var environment = process.env.NODE_ENV;
-
-   // if (environment === 'production'){
-   //  var port = appEnv.port;
-   //  var host = 'localhost';
-   // } else {
-   //  var port = app.get('port');
-   //  var host = app.get('host');
-   // }
    return app.listen(function() {
 
     app.emit('started');

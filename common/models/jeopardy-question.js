@@ -3,7 +3,6 @@
 module.exports = function(Jeopardyquestion) {
 
 	Jeopardyquestion.random = function(cb){
-		// cb(null, 'hi!')
 		Jeopardyquestion.getDataSource().connector.connect(function(err, db) {
 		  var collection = db.collection('jeopardyQuestion');
 		  collection.aggregate([

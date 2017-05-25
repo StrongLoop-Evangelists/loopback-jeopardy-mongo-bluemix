@@ -19,3 +19,4 @@ node_modules
 npm-debug.log
 server/config.production.json
 server/datasources.production.json
+dump/*
